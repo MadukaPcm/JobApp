@@ -2,10 +2,15 @@ package tz.maduka.FirstJobApp.company.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import tz.maduka.FirstJobApp.job.model.Job;
+import tz.maduka.FirstJobApp.review.model.Review;
 
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 //@Table(name = "company")
 public class Company {
@@ -20,8 +25,8 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Job> jobs;
 
-//    @OneToMany
-//    private List<Review> reviews;
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
     public Company() {
     }
@@ -30,38 +35,6 @@ public class Company {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.jobs = jobs;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public List<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
     }
 

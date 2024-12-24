@@ -13,14 +13,14 @@ import java.util.List;
 @RequestMapping(path = "/jobs")
 public class JobController {
 
-    @Autowired
+//    @Autowired=
     private JobService jobService;
     private Long nextId = 1L;
 
-//    @Autowired
-//    public JobController(JobService jobService) {
-//        this.jobService = jobService;
-//    }
+    @Autowired
+    public JobController(JobService jobService) {
+        this.jobService = jobService;
+    }
 
     @GetMapping("/")
     public ResponseEntity<List<Job>> findAll(){
