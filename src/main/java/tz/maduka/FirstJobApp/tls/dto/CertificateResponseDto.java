@@ -1,4 +1,4 @@
-package tz.maduka.FirstJobApp.company.payload.rest.dto;
+package tz.maduka.FirstJobApp.tls.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompanyDto {
+public class CertificateResponseDto {
 
-    private String name;
-    private String description;
+    private boolean success;
+    private String requestId;
+    private String message;
 }
